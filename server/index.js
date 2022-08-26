@@ -1,8 +1,10 @@
-import express from 'express'
-import postsRoutes from './routes/posts.routes.js'
-const app = express();
+import { connectDB } from "./db.js"
+import { PORT } from './config.js';
+import app from './app.js'
 
-app.use(postsRoutes);
-
-app.listen(3000);
-console.log('Server on port',3000)
+connectDB();
+/**
+ * aquí colocamos en escucha nuestro puerto del servidor
+ */
+app.listen(PORT);
+console.log('Server on port',PORT)
