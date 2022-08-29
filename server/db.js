@@ -1,3 +1,6 @@
+/**
+ * @module server
+ */
 import mongoose from "mongoose";
 import { MONGODB_URI } from "./config.js";
 

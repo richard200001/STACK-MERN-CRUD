@@ -1,5 +1,5 @@
 /**
- *@module MyPostSchema 
+ *@module server/MyPostSchema 
  */
 import mongoose from "mongoose";
 
