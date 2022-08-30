@@ -5,6 +5,7 @@ import express from 'express'
 import postsRoutes from './routes/posts.routes.js'
 /**
  * Aquí iniciamos nuestro servidor
+ * @type {Object}
  */
 const app = express();
 //Middlewares

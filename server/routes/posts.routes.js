@@ -28,7 +28,7 @@ router.post('/posts', createPost );
  * @chain {@link module:server/postControllers.updatePost}
  * @chain This handler
  */
-router.put('/posts', updatePost );
+router.put('/posts/:id', updatePost );
 /**
  * Index Route
  * @name delete
@@ -36,7 +36,7 @@ router.put('/posts', updatePost );
  * @chain {@link module:server/postControllers.deletePost}
  * @chain This handler
  */
-router.delete('/posts', deletePost );
+router.delete('/posts/:id', deletePost );
 /**
  * Index Route
  * @name indexEspecific
