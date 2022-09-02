@@ -2,6 +2,8 @@
  * @module server/postControllers
  */
 import Post from "../models/Post.js";
+import { uploadImage, deleteImage } from "../libs/cloudinary.js";
+import fs from 'fs-extra'//fs-extra utiliza async await
 /**
  * obtengo datos
  * @code {200} if the request is successful
@@ -37,7 +39,17 @@ export const createPost = async (req,res) => {
          * @type {any}
          */
         const {title, description} = req.body//obtengo el título y la descripción en constantes
-        const newPost = new Post({title,description})//creo un nuevo post con el modelo
+        let image;
+        if(req.files.image){//le pregunto si existe ese archivo
+            const results = await uploadImage(req.files.image.tempFilePath)//aquí subo la imagen a cloudinary, da como resultado los datos que genera la subida
+            await fs.remove(req.files.image.tempFilePath)
+            image={
+                url: results.secure_url,
+                public_id: results.public_id
+            }
+           
+        }
+        const newPost = new Post({title,description, image})//creo un nuevo post con el modelo
         await newPost.save()//guardo el nuevo post en la base de datos
         return res.json(newPost);//retorno en formato json objeto 
     } catch (error) {
@@ -87,6 +99,11 @@ export const deletePost = async (req,res) => {
         console.log(postRemoved)
         //si no encuentra el id del post que quiere eliminar, que envíe al cliente/usuario un código de estado 404
         if(!postRemoved) return res.sendStatus(404)
+
+        if(postRemoved.image.public_id){//le pregunto si existe es propiedad
+           await deleteImage(postRemoved.image.public_id)//llamo a la función de eliminar imagen de cloudinary y le paso el id que quiero eliminar
+        }
+
         //si encuentra el id del post que quiere eliminar,que envíe al cliente/usuario un código de estado 202
         return res.sendStatus(204)
     } catch (error) {
