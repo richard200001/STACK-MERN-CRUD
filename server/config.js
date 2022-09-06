@@ -13,4 +13,4 @@ export const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/testd
  * Este es el número de puerto de nuestro servidor
  * @type {Number | string}
  */
-export const PORT = process.env.PORT || 5000
+export const PORT = process.env.PORT || 4000

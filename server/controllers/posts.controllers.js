@@ -40,7 +40,7 @@ export const createPost = async (req,res) => {
          */
         const {title, description} = req.body//obtengo el título y la descripción en constantes
         let image;
-        if(req.files.image){//le pregunto si existe ese archivo
+        if(req.files?.image){//le pregunto si existe ese archivo
             const results = await uploadImage(req.files.image.tempFilePath)//aquí subo la imagen a cloudinary, da como resultado los datos que genera la subida
             await fs.remove(req.files.image.tempFilePath)
             image={
@@ -95,7 +95,7 @@ export const deletePost = async (req,res) => {
          * Nos devuelve el objeto post que eliminamos
          * @type {Object}
          */
-        const postRemoved = await Post.findByIdAndDelete(req.params.id).lean();
+        const postRemoved = await Post.findByIdAndDelete(req.params.id);
         console.log(postRemoved)
         //si no encuentra el id del post que quiere eliminar, que envíe al cliente/usuario un código de estado 404
         if(!postRemoved) return res.sendStatus(404)
