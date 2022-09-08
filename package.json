@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon server --ignore client",
-    "docs": "jsdoc -c jsdoc.json",
-    "deploy": "gh-pages -d doc"
+    "build":"npm run build --prefix client ",
+    "start": "node server"
   },
   "keywords": [],
   "author": "",

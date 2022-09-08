@@ -4,11 +4,14 @@
 import express from 'express'
 import fileUpload from 'express-fileupload';
 import postsRoutes from './routes/posts.routes.js'
+import {dirname, join} from 'path'
+import { fileURLToPath } from 'url';
 /**
  * Aquí iniciamos nuestro servidor
  * @type {Object}
  */
 const app = express();
+const __dirname= dirname(fileURLToPath(import.meta.url))
 //Middlewares
 app.use(express.json())//para poder leer archivos json
 app.use(fileUpload({
@@ -17,5 +20,6 @@ app.use(fileUpload({
 }))
 //Routes
 app.use(postsRoutes);
+app.use(express.static(join(__dirname, '../client/build')))
 
 export default app
