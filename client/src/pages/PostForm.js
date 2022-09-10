@@ -1,10 +1,17 @@
+/**
+ * Regresa al tutorial {@tutorial first-tutorial}
+ * @module client/src/pages/PostForm
+ */
 import React, { useEffect, useState } from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import { usePost } from '../context/postContext'
 import {useNavigate, useParams, Link} from 'react-router-dom'
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import * as Yup from 'yup'
-
+/**
+ * creando y actualizando tarjeta
+ * @returns {Object}
+ */
 export function PostForm(){
    const {createPost, getPost, updatePost} = usePost()
    const navigate = useNavigate()

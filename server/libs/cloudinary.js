@@ -1,3 +1,7 @@
+/**
+ * Regresa al tutorial {@tutorial first-tutorial}
+ * @module server/cloudinary
+ */
 import {v2 as cloudinary} from 'cloudinary'
 
 cloudinary.config({
@@ -5,13 +9,21 @@ cloudinary.config({
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET
   });
-
+/**
+ * 
+ * @param {*} filePath 
+ * @returns Object
+ */
 export const uploadImage = async filePath => {
     return await cloudinary.uploader.upload(filePath,{
         folder:'posts'
     })
 }
-
+/**
+ * 
+ * @param {*} id 
+ * @returns Promise
+ */
 export const deleteImage = async id => {
     return await cloudinary.uploader.destroy(id)
 }

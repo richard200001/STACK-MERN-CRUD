@@ -1,5 +1,6 @@
 /**
- * @module server
+ * Regresa al tutorial {@tutorial first-tutorial}
+ * @module server/app
  */
 import express from 'express'
 import fileUpload from 'express-fileupload';

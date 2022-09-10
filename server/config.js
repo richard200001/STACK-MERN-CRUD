@@ -1,5 +1,6 @@
 /**
- * @module server
+ * Regresa al tutorial {@tutorial first-tutorial}
+ * @module server/config
  */
 import dotenv from "dotenv"
 

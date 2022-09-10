@@ -1,7 +1,16 @@
+/**
+ * Regresa al tutorial {@tutorial first-tutorial}
+ * @module client/src/components/PostCard
+ */
 import React from "react"
 import toast from 'react-hot-toast'//envía notificaciones
 import { usePost } from "../context/postContext"
 import { useNavigate } from "react-router-dom"
+/**
+ * Eliminando tarjeta
+ * @param {Object} param0 
+ * @returns {Object}
+ */
 export function PostCard({post}){
 
     const {deletePost} = usePost()

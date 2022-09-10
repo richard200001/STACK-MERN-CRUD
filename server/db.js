@@ -1,5 +1,6 @@
 /**
- * @module server
+ * Regresa al tutorial {@tutorial first-tutorial}
+ * @module server/db
  */
 import mongoose from "mongoose";
 import { MONGODB_URI } from "./config.js";

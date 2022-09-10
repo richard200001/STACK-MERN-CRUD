@@ -1,4 +1,5 @@
 /**
+ * Regresa al tutorial {@tutorial first-tutorial}
  * @module server/postControllers
  */
 import Post from "../models/Post.js";

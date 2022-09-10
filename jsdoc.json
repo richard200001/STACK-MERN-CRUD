@@ -1,7 +1,7 @@
 {
     "plugins": ["jsdoc-http-plugin"],
     "source" : {
-        "include": ["server"],
+        "include": ["server","client"],
         "includePattern" : ".js$",
         "excludePattern" : "(node_modules|docs)"
     },
@@ -13,6 +13,7 @@
         "recurse" : "true",
         "destination": "./doc",
         "template": "node_modules/docdash",
+        "tutorials": "./tutorials",
         "readme": "./README.md"
        
     }

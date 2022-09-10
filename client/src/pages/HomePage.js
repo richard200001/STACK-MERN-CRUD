@@ -1,9 +1,16 @@
+/**
+ * Regresa al tutorial {@tutorial first-tutorial}
+ * @module client/src/pages/HomePage
+ */
 import React from 'react'
 import {usePost} from '../context/postContext'
 import {VscEmptyWindow} from 'react-icons/vsc'
 import {Link} from 'react-router-dom'
 import { PostCard } from '../components/PostCard'
-
+/**
+ * Page Main
+ * @returns {Object}
+ */
 export function HomePage(){
     const {posts} = usePost()
     

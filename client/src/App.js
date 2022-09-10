@@ -1,9 +1,16 @@
+/**
+ * Regresa al tutorial {@tutorial first-tutorial}
+ * @module client/src/App
+ */
 import React from "react";
 import { HomePage, PostForm, NotFoundPage} from './pages'
 import {Routes, Route} from "react-router-dom"
 import { PostProvider } from "./context/postContext";
 import {Toaster} from 'react-hot-toast'
-
+/**
+ * Organización de las rutas y sus interfaces
+ * @returns {Object}
+ */
 function App(){
   return(
     <div className="bg-neutral-900 min-h-screen flex items-center">
